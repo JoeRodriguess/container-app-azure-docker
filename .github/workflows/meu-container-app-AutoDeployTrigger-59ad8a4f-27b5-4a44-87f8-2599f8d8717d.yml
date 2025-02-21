@@ -34,15 +34,13 @@ jobs:
       - name: Build and push container image to registry
         uses: azure/container-apps-deploy-action@v2
         with:
-          appSourcePath: ${{ github.workspace }}container-app-azure-docker /app
-          _dockerfilePathKey_: _dockerfilePath_
-          registryUrl: registrycontainertofabric.azurecr.io
-          registryUsername: ${{ secrets.MEUCONTAINERAPP_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.MEUCONTAINERAPP_REGISTRY_PASSWORD }}
-          containerAppName: meu-container-app
-          resourceGroup: RG-TESTE-CONTAINERS-FABRIC
-          imageToBuild: registrycontainertofabric.azurecr.io/meu-container-app:${{ github.sha }}
-          _buildArgumentsKey_: |
-            _buildArgumentsValues_
+            appSourcePath: ${{ github.workspace }}/container-app-azure-docker
+            dockerfilePath: Dockerfile
+            registryUrl: registrycontainertofabric.azurecr.io
+            registryUsername: ${{ secrets.MEUCONTAINERAPP_REGISTRY_USERNAME }}
+            registryPassword: ${{ secrets.MEUCONTAINERAPP_REGISTRY_PASSWORD }}
+            containerAppName: meu-container-app
+            resourceGroup: RG-TESTE-CONTAINERS-FABRIC
+            imageToBuild: registrycontainertofabric.azurecr.io/meu-container-app:${{ github.sha }}
 
 
